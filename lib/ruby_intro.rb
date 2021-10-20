@@ -34,15 +34,30 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return 'Hello, ' + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if s.empty? == true
+    return false
+  end
+  if s[0].chr.match?(/[A-Za-z]/) == false
+    return false
+  end
+  if s[0].chr != 'a' && s[0].chr != 'e' && s[0].chr != 'i' && s[0].chr != 'o' && s[0].chr != 'u' &&
+    s[0].chr != 'A' && s[0].chr != 'E' && s[0].chr != 'I' && s[0].chr != 'O' && s[0].chr != 'U'
+    return true
+  end
+  return false
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s.empty? == true
+    return false
+  end
+  if s.match?(/[A-Za-z!@#$%^&*()3-9]/) == true
+    return false
+  end
 end
 
 # Part 3
