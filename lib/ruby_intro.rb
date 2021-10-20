@@ -55,13 +55,48 @@ def binary_multiple_of_4? s
   if s.empty? == true
     return false
   end
-  if s.match?(/[A-Za-z!@#$%^&*()3-9]/) == true
+  if s.match?(/[A-Za-z!@#$%^&*()2-9]/) == true
     return false
   end
+  if s[s.length - 1].chr == '0' && s[s.length - 2].chr == '0'
+    return true
+  end
+  return false  
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  # constructor
+  def initialize(isbn, price)
+    raise ArgumentError.new(
+      "Expected a valid isbn number."
+    ) if isbn.empty? == true
+    @isbn = isbn
+    raise ArgumentError.new(
+      "Expected a positive and non zero price."
+    ) if price < 0 || price == 0
+    @price = price
+  end
+
+  # method
+  def price_as_string
+    return sprintf('$%.2f', @price)
+  end
+
+  # getters
+  def isbn
+    @isbn
+  end
+  def price
+    @price
+  end
+
+  # setters
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+  def price=(price)
+    @price = price
+  end
 end
